@@ -28,7 +28,8 @@ class MarketApiTest {
 			System.err.println("appId‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢");
 			return;
 		}
-
+		appId = args[0];
+		
 		if (args.length == 2) {
 			try {
 				limit = Integer.valueOf(args[1]);
@@ -61,7 +62,7 @@ class MarketApiTest {
 	private void getReview(final String appId, final int limit, final int startIndex,
 			final List<Review> reviewList) {
 		CommentsRequest commentsRequest = CommentsRequest.newBuilder()
-				.setAppId("jp.ameba").setStartIndex(startIndex)
+				.setAppId(appId).setStartIndex(startIndex)
 				.setEntriesCount(10).build();
 
 		session.append(commentsRequest, new Callback<CommentsResponse>() {
